@@ -1,0 +1,145 @@
+<script>
+    console.log("hello world")
+
+    function getComputerChoice(){
+        let choice = Math.floor(Math.random() * 3);
+
+       switch (choice){
+
+        case 0:
+
+            console.log('rock');
+
+            return 'rock'
+            break;
+        case 1:
+            console.log('paper');
+            return 'paper'
+            break;
+        case 2:
+            console.log('scissors');
+            return 'scissors'
+            break;
+        default:
+            console.log('none')
+
+       }     
+    }
+
+    function getHumanChoice(){
+       let option =  prompt("Pick an option:- rock/paper/scissors?")
+
+       if (option==='rock'|| option==='ROCK'|| option==='Rock'){
+        console.log('rock');
+        return 'rock'
+       } 
+       else if (option==='paper' || option==='PAPER' || option==='Paper'){
+        console.log('paper');
+        return 'paper'
+       }
+       else if (option==='scissors' || option==='SCISSORS' || option==='Scissors'){
+        console.log('scissors');
+        return 'scissors'
+       }
+       else{
+        console.log('wrong option, pick betewwen rock,paper/scissors')
+        return getHumanChoice()
+
+       }
+    }
+
+    let humanScore = 0;
+    let computerScore = 0
+    
+    function playRound(humanChoice, computerChoice){
+
+        alert(`YOU: ${humanChoice.toUpperCase()}. COMPUTER: ${computerChoice.toUpperCase()}`)
+        if((humanChoice === 'rock') && computerChoice === 'paper'){
+
+            console.log('Win:Computer. Paper covers Rock')
+            computerScore += 1;
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else if (humanChoice === 'paper' && computerChoice === 'rock'){
+            console.log('Win:You :). Paper covers Rock')
+            humanScore += 1;
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else if(humanChoice === 'rock' && computerChoice === 'scissors'){
+            console.log('Win:You :). Rock breaks Scissors')
+            humanScore += 1;
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else if(humanChoice === 'scissors' && computerChoice === 'rock'){
+            console.log('Win:Computer. Rock breaks Scissors')
+            computerScore += 1;
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else if(humanChoice === 'paper' && computerChoice === 'scissors'){
+            console.log('Win:Computer. Scissors cuts Paper')
+            computerScore += 1;
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else if(humanChoice === 'scissors' && computerChoice === 'paper'){
+            console.log('Win:You :). Scissors cuts Paper')
+            humanScore += 1;
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else if(humanChoice == computerChoice){
+            console.log('This round is a draw')
+            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+        }
+        else{
+            console.log('error somewhere')
+        }
+    }
+
+
+    for(let i = 0; i<5; i++){
+
+        playRound(getHumanChoice(), getComputerChoice())
+
+    }
+
+    function playGame(){
+        alert('Hello! Start your Game. You have Five Rounds')
+        humanScore;
+        computerScore;
+        playRound;
+        
+
+/*
+        // If loop was used instead of calling function 5 times
+        for(let i = 0; i<5; i++){
+        alert(`ROUND ${i + 1}`)
+        playRound(getHumanChoice(), getComputerChoice())
+    }
+*/
+        alert('ROUND 1')
+        playRound(getHumanChoice(), getComputerChoice())
+        alert ('ROUND 2')
+        playRound(getHumanChoice(), getComputerChoice())
+        alert('ROUND 3')
+        playRound(getHumanChoice(), getComputerChoice())
+        alert('ROUND 4')
+        playRound(getHumanChoice(), getComputerChoice())
+        alert('ROUND 5')
+        playRound(getHumanChoice(), getComputerChoice())
+        
+        if(humanScore > computerScore) {
+            alert(`GAME OVER. YOU WIN! You Scored ${humanScore} out of 5`)
+        }
+        else if(humanScore < computerScore){
+            alert(`GAME OVER. COMPUTER WINS. Computer Scored ${computerScore} out of 5`)
+        }
+        else{
+            alert('This game ends as a draw')
+        }
+
+
+    }
+
+
+
+
+</script>
