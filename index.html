@@ -7,20 +7,16 @@
        switch (choice){
 
         case 0:
-
-            console.log('rock');
-
             return 'rock'
             break;
         case 1:
-            console.log('paper');
             return 'paper'
             break;
         case 2:
-            console.log('scissors');
             return 'scissors'
             break;
         default:
+            return 'error'
             console.log('none')
 
        }     
@@ -30,16 +26,13 @@
        let option =  prompt("Pick an option:- rock/paper/scissors?")
 
        if (option==='rock'|| option==='ROCK'|| option==='Rock'){
-        console.log('rock');
-        return 'rock'
+        return 'rock';
        } 
        else if (option==='paper' || option==='PAPER' || option==='Paper'){
-        console.log('paper');
-        return 'paper'
+        return 'paper';
        }
        else if (option==='scissors' || option==='SCISSORS' || option==='Scissors'){
-        console.log('scissors');
-        return 'scissors'
+        return 'scissors';
        }
        else{
         console.log('wrong option, pick betewwen rock,paper/scissors')
@@ -50,56 +43,46 @@
 
     let humanScore = 0;
     let computerScore = 0
-    
+    let result;
+
     function playRound(humanChoice, computerChoice){
 
-        alert(`YOU: ${humanChoice.toUpperCase()}. COMPUTER: ${computerChoice.toUpperCase()}`)
         if((humanChoice === 'rock') && computerChoice === 'paper'){
-
-            console.log('Win:Computer. Paper covers Rock')
+            
+            result = 'Win: Computer. Paper covers Rock'
             computerScore += 1;
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
         }
         else if (humanChoice === 'paper' && computerChoice === 'rock'){
-            console.log('Win:You :). Paper covers Rock')
+            result = ('Win: You :). Paper covers Rock')
             humanScore += 1;
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
         }
         else if(humanChoice === 'rock' && computerChoice === 'scissors'){
-            console.log('Win:You :). Rock breaks Scissors')
+            result = ('Win: You :). Rock breaks Scissors')
             humanScore += 1;
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
         }
         else if(humanChoice === 'scissors' && computerChoice === 'rock'){
-            console.log('Win:Computer. Rock breaks Scissors')
+            result = ('Win: Computer. Rock breaks Scissors')
             computerScore += 1;
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
         }
         else if(humanChoice === 'paper' && computerChoice === 'scissors'){
-            console.log('Win:Computer. Scissors cuts Paper')
+            result = ('Win: Computer. Scissors cuts Paper')
             computerScore += 1;
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
         }
         else if(humanChoice === 'scissors' && computerChoice === 'paper'){
-            console.log('Win:You :). Scissors cuts Paper')
+            result = ('Win: You :). Scissors cuts Paper')
             humanScore += 1;
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
         }
         else if(humanChoice == computerChoice){
-            console.log('This round is a draw')
-            console.log(`Computer Score: ${computerScore} ; Human Score: ${humanScore}`)
+            result = ('This round is a draw')
         }
         else{
             console.log('error somewhere')
         }
-    }
 
-
-    for(let i = 0; i<5; i++){
-
-        playRound(getHumanChoice(), getComputerChoice())
+        alert(`[YOU: ${humanChoice.toUpperCase()}] | [COMPUTER: ${computerChoice.toUpperCase()}] \n${result} \n[Computer Score: ${computerScore}] | [Human Score: ${humanScore}]`)
 
     }
+
 
     function playGame(){
         alert('Hello! Start your Game. You have Five Rounds')
